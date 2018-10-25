@@ -79,9 +79,10 @@
           const ad = {
             title: this.title,
             description: this.description,
-            promo: this.promo
+            promo: this.promo,
+            imgSrc: 'https://cdn.fishki.net/upload/post/2017/03/19/2245758/tn/02-funny-cat-wallpapercat-wallpaper.jpg'
           }
-          console.log(ad)
+          this.$store.dispatch('createAd', ad)
         }
       }
     }
