@@ -5,6 +5,9 @@ import store from './store'
 import Vuetify from 'vuetify'
 import * as fb from 'firebase'
 import 'vuetify/dist/vuetify.min.css'
+// import errorMy from 'error/error.vue'
+
+// Vue.component('app-error', errorMy)
 
 Vue.use(Vuetify)
 
