@@ -55,7 +55,11 @@ export default {
             payload.promo
           )
         const ad = await fb.database().ref('ads').push(newAd)
-        console.log(ad)
+        commit('createAd', {
+          ...newAd,
+          id: ad.key
+        })
+        commit('setLoading', false)
       } catch (e) {
         commit('setError', e.message)
         commit('setLoading', false)

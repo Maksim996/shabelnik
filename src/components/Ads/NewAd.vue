@@ -46,8 +46,9 @@
           <v-spacer></v-spacer>
           <v-btn 
           class="primary"
+          :loading="loading"
           @click="creareAd"
-          :disabled="!valid"
+          :disabled="!valid || loading"
           >Create ad</v-btn>
         </v-flex>
       </v-layout>
@@ -73,6 +74,11 @@
         ]
       }
     },
+    computed: {
+      loading () {
+        return this.$store.getters.loading
+      }
+    },
     methods: {
       creareAd () {
         if (this.$refs.form.validate()) {
@@ -83,6 +89,10 @@
             imgSrc: 'https://cdn.fishki.net/upload/post/2017/03/19/2245758/tn/02-funny-cat-wallpapercat-wallpaper.jpg'
           }
           this.$store.dispatch('createAd', ad)
+            .then(() => {
+              this.$router.push('/list')
+            })
+            .catch(() => {})
         }
       }
     }
