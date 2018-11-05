@@ -5,6 +5,7 @@
       <h1 class="text--secondary mb-3">My ads</h1>
       <v-card
       class="elevation-10 mb-3"
+      v-if="myAds"
       v-for="ad in myAds"
       :key="ad.id"
       >

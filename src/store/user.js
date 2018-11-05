@@ -5,6 +5,7 @@ class User {
     this.id = id
   }
 }
+
 export default {
   state: {
     user: null

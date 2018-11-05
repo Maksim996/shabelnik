@@ -24,10 +24,10 @@
               v-model="editedTitle"
               ></v-text-field>
               <v-textarea 
-              name="discription" 
-              label="Discription" 
+              name="description" 
+              label="Description" 
               type="text"
-              v-model="editedDiscription"
+              v-model="editedDescription"
               ></v-textarea>
             </v-card-text>
           </v-flex>
@@ -53,20 +53,20 @@
       return {
         modal: false,
         editedTitle: this.ad.title,
-        editedDiscription: this.ad.description
+        editedDescription: this.ad.description
       }
     },
     methods: {
       onCancel () {
         this.editedTitle = this.ad.title
-        this.editedDiscription = this.ad.description
+        this.editedDescription = this.ad.description
         this.modal = false
       },
       onSave () {
         if (this.editedTitle !== '' && this.description !== '') {
           this.$store.dispatch('updateAd', {
-            title: this.title,
-            discription: this.discription,
+            title: this.editedTitle,
+            description: this.editedDescription,
             id: this.ad.id
           })
           this.modal = false
