@@ -22,14 +22,24 @@
       </v-form>
       <v-layout row class="mt-3">
         <v-flex xs12 >
-          <v-btn color="success"> Upload
+          <v-btn 
+          color="success"
+          @click="triggerUpload"
+          > Upload
             <v-icon right dark>cloud_upload</v-icon>
           </v-btn>
+          <input 
+          ref="fileInput" 
+          type="file" 
+          style="display:none" 
+          accept="image/*"
+          @change="onFileChange"
+          >
         </v-flex>
       </v-layout>
       <v-layout row class="mt-3">
         <v-flex xs12>
-          <img height="200" src="https://cdn.vuetifyjs.com/images/carousel/planet.jpg" alt="foto">
+          <img height="200" :src="imageSrc" v-if="imageSrc">
         </v-flex>
       </v-layout>
       <v-layout row wrap>
@@ -48,8 +58,10 @@
           class="primary"
           :loading="loading"
           @click="creareAd"
-          :disabled="!valid || loading"
-          >Create ad</v-btn>
+          :disabled="!valid || !image || loading"
+          >
+            Create ad
+          </v-btn>
         </v-flex>
       </v-layout>
     </v-flex>
@@ -66,6 +78,8 @@
         description: '',
         valid: false,
         promo: false,
+        image: null,
+        imageSrc: '',
         titleRules: [
           v => !!v || 'title is required'
         ],
@@ -81,12 +95,12 @@
     },
     methods: {
       creareAd () {
-        if (this.$refs.form.validate()) {
+        if (this.$refs.form.validate() && this.image) {
           const ad = {
             title: this.title,
             description: this.description,
             promo: this.promo,
-            imgSrc: 'https://cdn.fishki.net/upload/post/2017/03/19/2245758/tn/02-funny-cat-wallpapercat-wallpaper.jpg'
+            image: this.image
           }
           this.$store.dispatch('createAd', ad)
             .then(() => {
@@ -94,6 +108,18 @@
             })
             .catch(() => {})
         }
+      },
+      triggerUpload () {
+        this.$refs.fileInput.click()
+      },
+      onFileChange (event) {
+        const file = event.target.files[0]
+        const reader = new FileReader()
+        reader.onload = e => {
+          this.imageSrc = reader.result
+        }
+        reader.readAsDataURL(file)
+        this.image = file
       }
     }
   }
