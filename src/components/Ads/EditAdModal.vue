@@ -63,12 +63,12 @@
         this.modal = false
       },
       onSave () {
-        if(this.editedTitle !== '' && this.description !== ''){
+        if (this.editedTitle !== '' && this.description !== '') {
           this.$store.dispatch('updateAd', {
             title: this.title,
             discription: this.discription,
             id: this.ad.id
-          }) 
+          })
           this.modal = false
         }
       }
