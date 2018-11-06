@@ -66,8 +66,9 @@
 
 <script>
   export default {
+    props: ['ad'],
     computed: {
-      ad () {},
+      // ad () {},
       promoAds () {
         return this.$store.getters.promoAds
       },

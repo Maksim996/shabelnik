@@ -80,17 +80,17 @@
       },
       onSave () {
         if (this.name !== '' && this.phone !== '') {
-          localLoading = true
+          this.localLoading = true
           this.$store.dispatch('createOrder', {
             name: this.name,
             phone: this.phone,
-            adId:this.ad.id,
+            adId: this.ad.id,
             ownerId: this.ad.ownerId
           })
           .finally(() => {
-            name = ''
-            phone = ''
-            localLoading = false
+            this.name = ''
+            this.phone = ''
+            this.localLoading = false
             this.modal = false
           })
         }

@@ -10,9 +10,9 @@ export default {
   actions: {
     async createOrder () {
       await new Promise((resolve, reject) => {
-        setTimeout( () => {
+        setTimeout(() => {
           resolve()
-        }, 4000);
+        }, 4000)
       })
     }
   },
