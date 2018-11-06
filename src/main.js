@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import BuyModalAd from '@/components/Shared/BuyModalAd'
 import store from './store'
 import Vuetify from 'vuetify'
 import * as fb from 'firebase'
@@ -10,7 +11,7 @@ import 'vuetify/dist/vuetify.min.css'
 // Vue.component('app-error', errorMy)
 
 Vue.use(Vuetify)
-
+Vue.component('add-modal-by-ad', BuyModalAd)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

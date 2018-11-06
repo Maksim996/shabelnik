@@ -41,7 +41,7 @@
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn flat :to="'/ad/'+i.id" color="primary">Open</v-btn>
-              <v-btn rasied color="success">Buy</v-btn>
+              <add-modal-by-ad :ad="ad" ></add-modal-by-ad>
             </v-card-actions>
           </v-card>
         </v-flex>
@@ -67,6 +67,7 @@
 <script>
   export default {
     computed: {
+      ad () {},
       promoAds () {
         return this.$store.getters.promoAds
       },
