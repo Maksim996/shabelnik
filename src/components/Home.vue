@@ -41,7 +41,7 @@
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn flat :to="'/ad/'+i.id" color="primary">Open</v-btn>
-              <add-modal-by-ad :ad="i" ></add-modal-by-ad>
+              <add-modal-by-ad :ad="i"></add-modal-by-ad>
             </v-card-actions>
           </v-card>
         </v-flex>
