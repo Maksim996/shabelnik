@@ -38,7 +38,7 @@
               <v-list-tile-sub-title>{{order.phone}}</v-list-tile-sub-title>
             </v-list-tile-content>
             <v-list-tile-action>
-              <v-btn :to="'/ad/ + order.adId'" color="primary">Open</v-btn>
+              <v-btn :to="'/ad/' + order.adId" color="primary">Open</v-btn>
             </v-list-tile-action>
           </v-list-tile>
         </v-list>
